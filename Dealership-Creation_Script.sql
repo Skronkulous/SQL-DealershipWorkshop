@@ -55,7 +55,7 @@ CREATE TABLE `Inventory` (
 CREATE TABLE `Sales_Contracts` (
     `SaleID` INTEGER NOT NULL AUTO_INCREMENT,
     `VIN` VARCHAR(17) NOT NULL,
-	`TotalPrice` INTEGER,
+	`TotalPrice` DECIMAL(10, 2),
     CONSTRAINT `PK_Sales_Contracts` PRIMARY KEY (`SaleID`),
 	CONSTRAINT `FK_Sales_Contracts_Vehicles` FOREIGN KEY (`VIN`) REFERENCES Vehicles(VIN)
 );
@@ -67,8 +67,8 @@ CREATE TABLE `Sales_Contracts` (
 CREATE TABLE `Lease_Contracts` (
     `LeaseID` INTEGER NOT NULL AUTO_INCREMENT,
     `VIN` VARCHAR(17) NOT NULL,
-	`TotalPrice` INTEGER,
-	`MonthlyPrice` INTEGER,
+	`TotalPrice` DECIMAL(10, 2),
+	`MonthlyPrice` DECIMAL(10, 2),
     CONSTRAINT `PK_Lease_Contracts` PRIMARY KEY (`LeaseID`),
 	CONSTRAINT `FK_Lease_Contracts_Vehicles` FOREIGN KEY (`VIN`) REFERENCES Vehicles(VIN)
 );
@@ -133,17 +133,17 @@ INSERT INTO Inventory (DealershipID, VIN) VALUES
 # ---------------------------------------------------------------------- #
 
 INSERT INTO Sales_Contracts (VIN, TotalPrice) VALUES
-	('1HGCM82633A000001', '15000'),
-	('5YFBURHE0EP000005', '54221'),
-	('9R2GG00Y430000009', '64351'),
-	('13TMBW5H1ED000013', '12314');
+	('1HGCM82633A000001', '15000.00'),
+	('5YFBURHE0EP000005', '54221.00'),
+	('9R2GG00Y430000009', '64351.00'),
+	('13TMBW5H1ED000013', '12314.00');
 
 # ---------------------------------------------------------------------- #
 # Add info into "Lease_Contracts"                                        #
 # ---------------------------------------------------------------------- #
 
 INSERT INTO Lease_Contracts (VIN, TotalPrice, MonthlyPrice) VALUES
-	('3VWCM82644M000003', '12345', '412'),
-	('7FARW2H88JE000007', '43213', '123'),
-	('11P0WEHDB9C000011', '52431', '42'),
-	('15VWZZZ6KZ6G00001', '100000', '12');
+	('3VWCM82644M000003', '12345.00', '412.00'),
+	('7FARW2H88JE000007', '43213.00', '123.00'),
+	('11P0WEHDB9C000011', '52431.00', '42.00'),
+	('15VWZZZ6KZ6G00001', '100000.00', '12.00');
